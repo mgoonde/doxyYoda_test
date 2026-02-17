@@ -5,8 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: HaoZeke/doxyYoda@v0.1.0
+        with:
+           cppreference-tag: true   # optional: download cppreference tag file
       - run: sudo apt-get install -y doxygen graphviz
-      - run: cd docs && make
+      - run: cd docs && ls -l && doxygen Doxyfile-this.in && ls -l
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/html
@@ -22,4 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/configure-pages@v4
-      - uses: actions/deploy-pages@v2
+      - uses: actions/deploy-pages@v4
