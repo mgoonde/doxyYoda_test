@@ -5,13 +5,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: HaoZeke/doxyYoda@v0.1.0
+#      - uses: HaoZeke/doxyYoda@v0.1.0
         with:
           cppreference-tag: true
       - run: sudo apt-get install -y doxygen graphviz
       - run: |
-         cd docs
-         doxygen Doxyfile-this.in
+         cd docs && ls -l
+         make
+#       doxygen Doxyfile-this.in
+         
+      - name: Archive artifact
+        shell: sh
+        if: runner.os == 'Linux'
+        run: |
+          tar \
+          --dereference --hard-dereference \
+          --exclude=.git \
+          --exclude=.github \
+          -cvf "$RUNNER_TEMP/artifact.tar" \
+          --directory=html .
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error         
   # deploy
   deploy:
     # Add a dependency to the build job
