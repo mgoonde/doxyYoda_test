@@ -19,6 +19,7 @@ jobs:
         shell: sh
         if: runner.os == 'Linux'
         run: |
+          cd docs
           tar \
           --dereference --hard-dereference \
           --exclude=.git \
