@@ -10,7 +10,8 @@ jobs:
           cppreference-tag: true
       - run: sudo apt-get install -y doxygen graphviz
       - run: |
-         cd docs && doxygen Doxyfile-this.in
+         cd docs
+         doxygen Doxyfile-this.in
   # deploy
   deploy:
     # Add a dependency to the build job
