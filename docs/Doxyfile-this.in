@@ -1,0 +1,79 @@
+# Customized Options
+# Make changes here to prevent things from being overwritten when the main file
+# is updated
+# Defaults
+@INCLUDE                = "Doxyfile.in"
+
+# XML
+GENERATE_XML            = NO
+XML_PROGRAMLISTING      = NO
+
+# HTML
+GENERATE_HTML           = YES
+
+# LaTeX
+GENERATE_LATEX          = NO
+
+# Project Settings
+PROJECT_NAME            = "doxyYoda test"
+PROJECT_NUMBER          = "0.1.0"
+PROJECT_BRIEF           = "Stuff and things"
+
+# Apidocs Settings
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+INPUT                  = ../README.md ../src ../interface
+EXCLUDE                = build
+USE_MDFILE_AS_MAINPAGE = ../README.md
+#CITE_BIB_FILES         = refs.bib
+
+# Language additions
+OPTIMIZE_FOR_FORTRAN = YES
+OPTIMIZE_FOR_JAVA    = YES
+EXCLUDE_PATTERNS     = *.d
+EXCLUDE              = ../examples
+
+# XML
+GENERATE_XML            = NO
+XML_PROGRAMLISTING      = NO
+# LaTeX
+GENERATE_LATEX          = NO
+
+# Style
+JAVADOC_BANNER         = YES
+JAVADOC_AUTOBRIEF      = NO
+INHERIT_DOCS           = YES
+INLINE_SOURCES         = YES
+SOURCE_BROWSER         = YES
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = NO
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = YES
+HTML_DYNAMIC_SECTIONS  = YES
+INTERACTIVE_SVG        = YES
+# Theme
+# HTML
+GENERATE_HTML          = YES
+USE_MATHJAX            = YES
+HTML_HEADER            = "doxyYoda/html/header.html"
+HTML_FOOTER            = "doxyYoda/html/footer.html"
+HTML_EXTRA_STYLESHEET  = "doxyYoda/css/doxyYoda.min.css"
+LAYOUT_FILE            = "doxyYoda/xml/doxyYoda.xml"
+
+# Extract everything
+#EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = YES
+#EXTRACT_PRIVATE        = NO
+EXTRACT_PRIV_VIRTUAL   = YES
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = YES
+MACRO_EXPANSION        = YES
+ENABLE_PREPROCESSING   = YES
+
+# python?
+PYTHON_DOCSTRINGS = NO
+
+
+# Local Variables:
+# mode: conf
+# End:
